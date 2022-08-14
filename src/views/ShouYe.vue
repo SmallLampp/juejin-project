@@ -8,8 +8,8 @@
     </div>
     <div>
       <div class="container">
-        <div class="data" style="height: 2000px">111111</div>
-        <div class="aside" style="display: flex; height: 2000px; width: 240px">
+        <div class="data" style="height: 4000px">111111</div>
+        <div class="aside" style="display: flex">
           <AsideLine> </AsideLine>
         </div>
       </div>

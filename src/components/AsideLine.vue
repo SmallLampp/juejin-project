@@ -2,67 +2,157 @@
 
 <!-- 侧边栏 -->
 <template>
-  <div class="main-container" style="width: 240px; height: auto">
-    <aside class="index-aside aside">
+  <div class="main-container" style="">
+    <aside class="index-aside aside" ref="init">
       <div class="signin-tip signin">
         <div class="first-line">
           <div class="icon-text">
             <img src="" alt="" />
-            <span class="title">下午好!</span>
+            <span class="title wenhou">下午好!</span>
           </div>
-          <button class="btn signin-btn">
-            <a href="https://juejin.cn/user/center/signin?from=main_page"></a>
+          <button class="btn signin-btn" @click="gotoNewview()">
             <span class="btn-next">去签到</span>
           </button>
         </div>
         <div class="second-line">点亮你在社区的每一天</div>
       </div>
-      <div class="sidebar-block banner-block">
-        <div class="banner">
-          <a
-            href="https://juejin.cn/post/7123120819437322247?utm_source=web&utm_medium=banner&utm_campaign=gengwen202208"
-          >
-            <img
-              src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0b6a58397c77485495a051142f1d863d~tplv-k3u1fbpfcp-no-mark:480:400:0:0.awebp?"
-              alt=""
-              class="banner-image"
-            />
-          </a>
-        </div>
-      </div>
-      <div class="sidebar-block banner-block">
-        <div class="banner banner">
-          <a
-            href="https://juejin.cn/book/7117582869358182403?utm_source=web_banner&utm_medium=banner&utm_campaign=Book_zjk_0803"
-          >
-            <img
-              src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a88a1ea956734105a5b002dfb48840cb~tplv-k3u1fbpfcp-no-mark:480:400:0:0.awebp?"
-              alt=""
-              class="banner-image"
-            />
-          </a>
-        </div>
-      </div>
 
-      <div
-        class="sidebar-block app-download-sidebar-block sidebar-block shadow"
-      >
-        <div class="block-body">
-          <a href="https://juejin.cn/app" class target="_blank">
-            <div class="app-link">
+      <div class="sidebar-block yidong-block" ref="T">
+        <div class="sidebar-block banner-block Gg1">
+          <div class="banner" @mouseover="showGg1()" @mouseout="disshowGg1()">
+            <a
+              href="https://juejin.cn/post/7123120819437322247?utm_source=web&utm_medium=banner&utm_campaign=gengwen202208"
+            >
               <img
-                src="https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/home.59780ae.png"
+                src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0b6a58397c77485495a051142f1d863d~tplv-k3u1fbpfcp-no-mark:480:400:0:0.awebp?"
                 alt=""
-                class="qr-img"
+                class="banner-image"
               />
-              <div class="content-box">
-                <div class="headline">下载稀土掘金APP</div>
-                <div class="desc">一个帮助开发者成长的社区</div>
-              </div>
+            </a>
+            <div class="ctrl-box">
+              <i
+                class="el-icon-close close-btn"
+                v-show="flagGg1"
+                @click="closeGg1()"
+              ></i>
             </div>
-          </a>
+          </div>
+        </div>
+        <div class="sidebar-block banner-block Gg2">
+          <div
+            class="banner banner"
+            @mouseover="showGg2()"
+            @mouseout="disshowGg2()"
+          >
+            <a
+              href="https://juejin.cn/book/7117582869358182403?utm_source=web_banner&utm_medium=banner&utm_campaign=Book_zjk_0803"
+            >
+              <img
+                src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a88a1ea956734105a5b002dfb48840cb~tplv-k3u1fbpfcp-no-mark:480:400:0:0.awebp?"
+                alt=""
+                class="banner-image"
+              />
+            </a>
+            <div class="ctrl-box">
+              <i
+                class="el-icon-close close-btn"
+                v-show="flagGg2"
+                @click="closeGg2()"
+              ></i>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="sidebar-block app-download-sidebar-block sidebar-block shadow"
+        >
+          <div class="block-body">
+            <a href="https://juejin.cn/app" class target="_blank">
+              <div class="app-link">
+                <img
+                  src="https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/home.59780ae.png"
+                  alt=""
+                  class="qr-img"
+                />
+                <div class="content-box">
+                  <div class="headline">下载稀土掘金APP</div>
+                  <div class="desc">一个帮助开发者成长的社区</div>
+                </div>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
+      <!-- <div class="sidebar-block sticky-block">
+        <div class="sidebar-block banner-block Gg1">
+          <div
+            class="banner sticky-banner"
+            @mouseover="showGg1()"
+            @mouseout="disshowGg1()"
+          >
+            <a
+              href="https://juejin.cn/post/7123120819437322247?utm_source=web&utm_medium=banner&utm_campaign=gengwen202208"
+            >
+              <img
+                src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0b6a58397c77485495a051142f1d863d~tplv-k3u1fbpfcp-no-mark:480:400:0:0.awebp?"
+                alt=""
+                class="banner-image"
+              />
+            </a>
+            <div class="ctrl-box">
+              <i
+                class="el-icon-close close-btn"
+                v-show="flagGg1"
+                @click="closeGg1()"
+              ></i>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar-block banner-block Gg2">
+          <div
+            class="banner banner sticky-banner"
+            @mouseover="showGg2()"
+            @mouseout="disshowGg2()"
+          >
+            <a
+              href="https://juejin.cn/book/7117582869358182403?utm_source=web_banner&utm_medium=banner&utm_campaign=Book_zjk_0803"
+            >
+              <img
+                src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a88a1ea956734105a5b002dfb48840cb~tplv-k3u1fbpfcp-no-mark:480:400:0:0.awebp?"
+                alt=""
+                class="banner-image"
+              />
+            </a>
+            <div class="ctrl-box">
+              <i
+                class="el-icon-close close-btn"
+                v-show="flagGg2"
+                @click="closeGg2()"
+              ></i>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="sidebar-block app-download-sidebar-block sidebar-block shadow"
+        >
+          <div class="block-body">
+            <a href="https://juejin.cn/app" class target="_blank">
+              <div class="app-link">
+                <img
+                  src="https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/home.59780ae.png"
+                  alt=""
+                  class="qr-img"
+                />
+                <div class="content-box">
+                  <div class="headline">下载稀土掘金APP</div>
+                  <div class="desc">一个帮助开发者成长的社区</div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div> -->
       <div class="sidebar-block user-block">
         <div class="recommend-author-block sticky-authod-block">
           <header class="user-block-header">🎖️作者榜</header>
@@ -346,11 +436,114 @@
 
 <script>
 export default {
-  methods: {},
+  mounted() {
+    window.addEventListener("scroll", this.watchScroll);
+    this.getTime();
+    this.changeWenhou();
+  },
+  data() {
+    return {
+      flagGg1: false,
+      flagGg2: false,
+      navBarFixed: false,
+      sendTime: "",
+    };
+  },
+  methods: {
+    gotoNewview() {
+      window.open(
+        "https://juejin.cn/user/center/signin?from=main_page",
+        "_blank"
+      );
+    },
+    changeWenhou() {
+      // console.log(this.sendTime);
+      let wenhou = document.querySelector(".wenhou");
+      if (this.sendTime >= 0 && this.sendTime < 12)
+        wenhou.innerHTML = "上午好！";
+      else if (this.sendTime >= 12 && this.sendTime < 14) {
+        wenhou.innerHTML = "中午好！";
+      } else if (this.sendTime >= 14 && this.sendTime < 18) {
+        wenhou.innerHTML = "下午好！";
+      } else {
+        wenhou.innerHTML = "晚上好！";
+      }
+    },
+    getTime() {
+      const nowDate = new Date();
+      // const date = {
+      //     year: nowDate.getFullYear(),
+      //     month: nowDate.getMonth() + 1,
+      //     date: nowDate.getDate(),
+      // }
+      // const newmonth = date.month > 10 ? date.month : '0' + date.month
+      // const day = date.date > 10 ? date.date : '0' + date.date
+      this.sendTime = nowDate.getHours();
+    }, //获取当前时间
+    closeGg1() {
+      let gg = document.querySelector(".Gg1");
+      gg.style = "display:none";
+    },
+    closeGg2() {
+      let gg = document.querySelector(".Gg2");
+      gg.style = "display:none";
+    },
+    showGg1() {
+      this.flagGg1 = true;
+    },
+    disshowGg1() {
+      this.flagGg1 = false;
+    },
+    showGg2() {
+      this.flagGg2 = true;
+    },
+    disshowGg2() {
+      this.flagGg2 = false;
+    },
+    watchScroll() {
+      let gg1 = document.querySelector(".yidong-block");
+      var scrollTop =
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop;
+      //  当滚动超过 index-aside的高度 时，实现吸顶效果
+      // 获取index-aside的高度 offsetHeight属性可以获取元素的可见高度值
+      let heightH = this.$refs.init.offsetHeight;
+      let heightT = this.$refs.T.offsetHeight;
+      // console.log(heightT);
+      let height = heightH;
+      if (1054 >= heightH) height = heightH + heightT;
+      else height = heightH;
+      // console.log(height);
+      // 超过height新增sticky-block类，实现吸顶
+
+      if (scrollTop > height) {
+        this.navBarFixed = true;
+        gg1.classList.add("sticky-block");
+      } else {
+        this.navBarFixed = false;
+        gg1.classList.remove("sticky-block");
+      }
+    },
+  },
 };
 </script>
 
 <style>
+.banner .ctrl-box .close-btn:hover {
+  opacity: 1;
+}
+.sidebar-block.sticky-block {
+  position: fixed;
+  background-color: transparent;
+  box-shadow: none;
+  /* opacity: 0; */
+  transition: all 0.2s;
+  width: 20rem;
+  /* z-index: -1; */
+  top: 67px;
+  /* pointer-events: none; */
+}
 .aside {
   position: absolute;
   top: 0;
@@ -388,7 +581,11 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* cursor: pointer; */
+  cursor: pointer;
+}
+.signin-tip .first-line .signin-btn:hover {
+  background-color: #e8f3ff;
+  color: #388eff;
 }
 .signin-tip .first-line .btn {
   border-radius: 50px;
@@ -672,5 +869,18 @@ input {
 
 .index-aside-footer .more-list.account-list .icon:hover + .qr-panel {
   opacity: 1 !important;
+}
+
+.banner .ctrl-box .close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 1.5rem;
+  color: #909090;
+  opacity: 0.5;
+  /* display: none; */
+}
+.banner .ctrl-box .close-btn:hover {
+  opacity: 1;
 }
 </style>
