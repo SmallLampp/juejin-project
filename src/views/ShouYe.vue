@@ -8,7 +8,9 @@
     </div>
     <div>
       <div class="container">
-        <div class="data" style="height: 4000px">111111</div>
+        <div class="data" style="height: 4000px">
+          <ContentList></ContentList>
+        </div>
         <div class="aside" style="display: flex">
           <AsideLine> </AsideLine>
         </div>
@@ -19,8 +21,9 @@
 
 <script>
 import AsideLine from "../components/AsideLine.vue";
+import ContentList from "../components/contentList.vue";
 export default {
-  components: { AsideLine },
+  components: { AsideLine, ContentList },
 };
 </script>
 
